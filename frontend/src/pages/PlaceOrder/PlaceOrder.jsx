@@ -37,15 +37,15 @@ const PlaceOrder = () => {
               <hr/>
               <div className="cart-total-details">
                 <p>Delivery Fee</p>
-                <p>₹ {49}</p>
+                <p>₹ {getTotatlCartAmount()===0?0:49}</p>
               </div>
               <hr/>
               <div className="cart-total-details">
                 <b>Total</b>
-                <b>₹ {getTotatlCartAmount()+49}</b>
+                <b>₹ {getTotatlCartAmount()===0?0:getTotatlCartAmount()+49}</b>
               </div>
             </div>
-            <button >PROCEED TO PAYMENT</button>
+            <button onClick={()=>navigate('/order')}>PROCEED TO PAYMENT</button>
           </div>
        </div>
     </form>
