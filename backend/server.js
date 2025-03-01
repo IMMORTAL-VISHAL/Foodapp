@@ -5,7 +5,7 @@ import cors from "cors";
 
 const app = express();
 
-const port = 4000;
+const port = 4000
 
 // middleware
 
@@ -17,6 +17,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port,()=>{
-    console.log(`Server started on https://localhost:${port}`);
-    
+    console.log(`Server Started on http://localhost:${port}`);
 })
