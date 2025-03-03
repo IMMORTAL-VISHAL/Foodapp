@@ -5,6 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
+  const url = "http://localhost:4000"
 
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {
@@ -35,6 +36,7 @@ const StoreContextProvider = (props) => {
     addToCart,
     removeFromCart,
     getTotatlCartAmount,
+    url,
   };
   // this is only for cheking the data will fetched perfectly or not
   // useEffect(()=>{
