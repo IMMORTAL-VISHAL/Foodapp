@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Add.css'
 import { assets } from '../../assets/assets'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const Add = () => {
 
@@ -23,7 +24,7 @@ const Add = () => {
 
     const onSubmitHandler = async(event)=>{
         event.preventDefault();
-        const formData = new formData();
+        const formData = new FormData();
         formData.append("name",data.name)
         formData.append("description",data.description)
         formData.append("price",Number(data.price))
@@ -37,10 +38,11 @@ const Add = () => {
             price:"",
             category:"Salad"
         })   
-        setImage(false)  
+        setImage(false) 
+        toast.success(response.data.message) 
         }   
         else{
-
+            toast.error(response.data.message)
         } 
     }
 
