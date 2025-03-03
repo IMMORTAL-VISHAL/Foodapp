@@ -14,9 +14,11 @@ import { configDotenv } from "dotenv";
 //     }
 // }
 
-// export default connectDB
+//export default connectDB
 
-//this is working and understand this what is happening in this 
+ //this is working and understand this what is happening in this
+
+ 
  export const connectDB = () => {
     mongoose.connect(process.env.MONGODB_URL,{
         useNewUrlParser:true,
