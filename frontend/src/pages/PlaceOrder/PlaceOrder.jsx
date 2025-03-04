@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./PlaceOrder.css";
 import { StoreContext } from "../../context/StoreContext";
+import { useNavigate } from "react-router-dom";
 
 const PlaceOrder = () => {
   const { getTotatlCartAmount, token, food_list, cartItems, url } =
@@ -34,19 +35,29 @@ const PlaceOrder = () => {
       }
     });
     let orderData = {
-      address:data,
-      items:orderItems,
-      amount:getTotatlCartAmount()+49,
-    }
-    let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}})
+      address: data,
+      items: orderItems,
+      amount: getTotatlCartAmount() + 49,
+    };
+    let response = await axios.post(url + "/api/order/place", orderData, {
+      headers: { token },
+    });
     if (response.data.success) {
-      const {session_url} = response.data;
-      window.location.replace(session_url)
-    }
-    else{
-      alert("Error");   
+      const { session_url } = response.data;
+      window.location.replace(session_url);
+    } else {
+      alert("Error");
     }
   };
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/cart");
+    } else if (getTotatlCartAmount() === 0) {
+      navigate("/cart");
+    }
+  }, [token]);
 
   return (
     <form onSubmit={placeOrder} className="place-order">
