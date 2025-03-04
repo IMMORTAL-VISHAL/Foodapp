@@ -41,7 +41,7 @@ const MyOrders = () => {
               <p>₹{order.amount}.00</p>
               <p>items:{order.items.length}</p>
               <p><spna>&#x25cf;</spna> <b>{order.status}</b></p>
-              <button>Track Order</button>
+              <button onClick={fetchOrders}>Track Order</button>
             </div>
           );
         })}
