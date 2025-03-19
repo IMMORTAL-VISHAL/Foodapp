@@ -7,7 +7,7 @@ import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import Footer from "./components/Footer/Footer";
 import LogInPopUp from "./components/LogInPopUp/LogInPopUp";
 import MyOrders from "./pages/MyOrders/MyOrders";
-import Verify from "./pages/Verify/Verify";
+import Verify from "./pages/verify/verify";
 
 
 
