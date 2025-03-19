@@ -12,7 +12,7 @@ connectDB();
 
 // App config
 const app = express();
-const port = 4000;
+const port = process.eventNames.PORT || 4000;
 
 // Middleware
 app.use(express.json());
